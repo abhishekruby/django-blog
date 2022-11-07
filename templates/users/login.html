@@ -1,0 +1,14 @@
+{% extends "users/auth_base.html" %} {% load static %} {% block content %}
+        <form class="login-form"  action="" method="post">
+            {% csrf_token %}
+            <label>
+                <input type="text" name="username" required placeholder="username">
+            </label>
+            <label>
+                <input type="password" name="password" required placeholder="Password">
+            </label>
+            <a href="{% url 'users:login' %}"><input type="submit" value="Login"></a>
+        </form>
+        <h5><a href="#">Forgot password</a></h5>  
+          <a href="{% url 'users:signup' %}">Create Account</a>
+{% endblock %}

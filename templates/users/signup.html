@@ -1,0 +1,16 @@
+{% extends "users/auth_base.html" %} {% load static %} {% block content %}
+        <form class="login-form"  action="" method="post">
+            {% csrf_token %} {% for field in form %}
+            <div>
+                <label for="id_username"> {{field.label}} </label>
+                {{field}}
+            </div>
+            {% endfor %}
+            <a href="{% url 'users:login' %}"><input type="submit" value="Login"></a>
+        </form>
+        <h5><a href="#">Forgot password</a></h5>  
+          <a href="">Create Account</a>
+          <a href="{% url 'users:login' %}">Login</a>
+    {% endblock %}
+     
+  
