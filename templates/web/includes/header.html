@@ -10,6 +10,8 @@
     </h1>
     <div>
         {% if request.user.is_authenticated %}
+        <h3>Welcome {{request.user.username}}</h3>
+        
             <a href="{% url 'posts:create_post' %}" class="login my-posts">
             Create    
             </a>

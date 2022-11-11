@@ -1,0 +1,86 @@
+{% extends "base.html" %} {% block content %} {% load static %} 
+{% load paginator_tags %}
+        <section id="my-posts-home">
+            <section class="wrapper">                
+                <header>
+                    <h1>
+                        <a href="#">
+                            <img
+                                src="{% static './images/icons/blog-logo.svg' %}"
+                                alt="Logo"
+                            />
+                        </a>
+                    </h1>
+                    <div>
+                        <a href="./create.html" class="login my-posts">
+                        Create
+                        </a>
+                        <a href="./my-posts.html" class="login my-posts">
+                            My Posts
+                        </a>
+                        <a href="#" class="login"> Logout </a>
+                    <div>
+                    <div id="hamburger-icon">
+                        <img
+                            src="{% static './images/icons/hamburger.svg' %}"
+                            alt="Hamburger"
+                        />
+                    </div>
+                </header>
+                <section class="spotlight">
+                    <h3>
+                       {{title}}
+                    </h3>
+                    <ul class="posts">
+                        {% for instance in instances %}
+                        <li class="post">
+                            <div class="top">
+                                <h5 class="title">
+                                    {{instance.title}}
+                                </h5>
+                                <div class="buttons">
+                                    <a 
+                                    href="#" 
+                                    class="danger"
+                                    data-text="Are you sure want to remove this post. You can't undo this action." 
+                                    data-title="Confirm Delete!"
+                                    title="Delete!"
+                                >
+                                        <img src="{% static './images/icons/delete.svg' %}" alt="Delete" />
+                                    </a>
+                                    <a href="#" class="warning">
+                                        <img src="{% static './images/icons/pencil.svg' %}" alt="Edit" />
+                                    </a>
+                                    <a 
+                                        href="#" 
+                                        class="danger"
+                                        data-text="Are you sure want to update this post" 
+                                        data-title="Confirm Status!"
+                                        title="Draft"
+                                    >
+                                        <img src="{% static './images/icons/sheet.svg' %}" alt="Edit" />
+                                    </a>
+                                </div>
+                            </div>
+                            <p class="description">
+                               {{instance.short_description}}
+                            </p>
+                            <div class="bottom">
+                                <a href="{% url 'web:post' id=instance.id %}" class="view">
+                                    View
+                                    <span>
+                                        <img src="{% static './images/icons/up-arrow.svg' %}" alt="Arrow">
+                                    </span>
+                                </a>
+                                <p class="date">
+                                    {{instance.published_date}}
+                                </p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% load_pagination instances %}
+                </section>
+            </section>
+        </section>
+        {% endblock %}

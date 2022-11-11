@@ -29,6 +29,7 @@ class Post(models.Model):
 
     author = models.ForeignKey("posts.Author", on_delete=models.CASCADE)
     published_date = models.DateField()
+    categories = models.ManyToManyField("posts.Category")
     is_draft = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
 

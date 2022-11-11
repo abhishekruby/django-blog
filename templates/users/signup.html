@@ -6,6 +6,9 @@
                 {{field}}
             </div>
             {% endfor %}
+            {% if error %}
+            <p class="error-message">{{message}}</p>
+            {% endif %}
             <a href="{% url 'users:login' %}"><input type="submit" value="Login"></a>
         </form>
         <h5><a href="#">Forgot password</a></h5>  

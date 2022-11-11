@@ -156,7 +156,7 @@ $(document).on("submit", "form.ajax", function (e) {
             var redirect_url = data["redirect_url"];
             var stable = data["stable"];
 
-            if (status == "success") {
+            if (status === "success") {
                 if (title) {
                     title = title;
                 } else {

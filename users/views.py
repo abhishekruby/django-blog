@@ -63,7 +63,7 @@ def signup(request):
             context={
                 "title" : "Signup",
                 "error" : True,
-                "message" : "message",
+                "message" : message,
                 "form" : form,
             }    
             return render(request, "users/signup.html",context=context)
